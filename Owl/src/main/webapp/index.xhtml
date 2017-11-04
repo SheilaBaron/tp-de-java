@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+	<title><ui:insert name="title" /></title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+	<!-- Optional theme -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</h:head>
+
+<h:body>
+	<ui:include src="template.xhtml"></ui:include>
+	<f:view>
+		<h:form>
+			<div class="col-sm-10">
+				<h2 align="center">
+					<a href="#">Muro General</a>
+				</h2>
+			</div>
+			<div class="container">
+
+				<article>
+					<section class="writer">
+						<h:inputText value="#{CreatePostMb.post.content}" type="textarea"
+							placeholder="Que piensas" cols="70" rows="10" />
+						<div class="buttons.writer">
+							<h:commandLink class="btn btn-default"
+								action="#{createPostMb.create()}">Subir</h:commandLink>
+						</div>
+					</section>
+				</article>
+				<br> </br>
+			</div>
+		</h:form>
+		<h:form>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<h2 class="page-header">Commentarios</h2>
+						<section class="comment-list">
+							<!-- First Comment -->
+							<article class="row">
+								<div class="col-md-2 col-sm-2 hidden-xs">
+									<figure class="thumbnail">
+										<img class="img-responsive"
+											src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+										<figcaption class="text-center">
+											<h:outputText value="ListAllPost.user" />
+										</figcaption>
+									</figure>
+								</div>
+								<h:dataTable value="#{ListAllPostMb.allPost}" var="p">
+									<div class="col-md-10 col-sm-10">
+										<div class="panel panel-default arrow left">
+											<div class="panel-body">
+												<header class="text-left">
+													<div class="comment-user">
+														<i class="fa fa-user"></i>
+														<h:column>
+															#{p.getUser().getName()}
+														</h:column>
+
+													</div>
+
+												</header>
+												<div class="comment-post">
+													<p>
+														<h:column>
+															#{p.content}
+														</h:column>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</h:dataTable>
+							</article>
+						</section>
+					</div>
+				</div>
+			</div>
+		</h:form>
+
+
+
+
+	</f:view>
+</h:body>
+</html>
