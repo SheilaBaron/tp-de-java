@@ -33,7 +33,7 @@
 
 				<article>
 					<section class="writer">
-						<h:inputText value="#{CreatePostMb.post.content}" type="textarea"
+						<h:inputText value="#{createPostMb.post.content}" type="textarea"
 							placeholder="Que piensas" cols="70" rows="10" />
 						<div class="buttons.writer">
 							<h:commandLink class="btn btn-default"
@@ -57,11 +57,11 @@
 										<img class="img-responsive"
 											src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
 										<figcaption class="text-center">
-											<h:outputText value="ListAllPost.user" />
+											<h:outputText value="#{listAllPostMb.user}" />
 										</figcaption>
 									</figure>
 								</div>
-								<h:dataTable value="#{ListAllPostMb.allPost}" var="p">
+								<h:dataTable value="#{listAllPostMb.allPost}" var="p">
 									<div class="col-md-10 col-sm-10">
 										<div class="panel panel-default arrow left">
 											<div class="panel-body">
